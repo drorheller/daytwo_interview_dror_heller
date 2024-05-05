@@ -71,3 +71,48 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## How Tos:
+### Create the db:
+The db used is MySQL 8,
+Import `superhero_db_dump.sql` found in the `files` folder to your db
+The project assumes localhost:3306 with user and password "root"
+
+### Create a hero:
+```
+curl --location 'http://localhost:3000/superheroes'
+--header 'Content-Type: application/json'
+--data '[
+    {
+        "name": "Captain America",
+        "alias": "Steve Rogers",
+        "createdAt": "2024-05-04",
+        "updatedAt": "2024-05-04",
+        "powers": [
+            {
+              "power": "Superstrength"
+            },
+            {
+                "power": "Honesty"
+            },
+            {
+                "power": "Strategy"
+            }
+        ]
+    }
+]'
+```
+
+### Create a timer:
+```
+curl --location 'http://localhost:3000/timers' \
+--header 'Content-Type: application/json' \
+--data '[
+    {
+        "triggerInSeconds": 2,
+        "url": "myurl",
+        "message": "Hi there!",
+        "superheroId": 13
+    }
+]'
+```
